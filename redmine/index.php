@@ -50,13 +50,13 @@ class user extends control
 			$account  = trim($_REQUEST['PHP_AUTH_USER']);
             $password = $_REQUEST['PHP_AUTH_PW'];
 		} else {
-			die(helper::removeUTF8Bom(json_encode(new RedmineCurrent('')))));
+			die(helper::removeUTF8Bom(json_encode(new RedmineCurrent(''))));
 		}
 
             if($this->user->checkLocked($account))
             {
                 $failReason = sprintf($this->lang->user->loginLocked, $this->config->user->lockMinutes);
-                die(helper::removeUTF8Bom(json_encode(new RedmineCurrent('')))));
+                die(helper::removeUTF8Bom(json_encode(new RedmineCurrent(''))));
             }
             
             $user = $this->user->identify($account, $password);
@@ -73,7 +73,7 @@ class user extends control
             {
                 $fails = $this->user->failPlus($account);
                 
-                die(helper::removeUTF8Bom(json_encode(new RedmineCurrent('')))));
+                die(helper::removeUTF8Bom(json_encode(new RedmineCurrent(''))));
                 
             }
         
